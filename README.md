@@ -11,7 +11,7 @@ $ npm install parallel-loop
 ## Usage
 
 ```js
-loop = require('loop-paralelly')
+loop = require('parallel-loop')
 
 loop(10, each, function () {
   console.log('end')
