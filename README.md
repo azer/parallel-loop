@@ -1,6 +1,6 @@
 ## parallel-loop
 
-Loop parallelly
+Async parallel loop. See also [serial-loop](http://github.com/azer/serial-loop)
 
 ## Install
 
