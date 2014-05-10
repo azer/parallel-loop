@@ -54,3 +54,11 @@ test('ignores multiple done calls', function (t) {
     done();
   };
 });
+
+test('zero length', function (t) {
+  loop(0, each, t.end);
+
+  function each () {
+    throw new Error('fail');
+  }
+});

@@ -1,6 +1,8 @@
 module.exports = parallel;
 
 function parallel (n, each, done) {
+  if (n == 0) return done();
+
   var counter = 0;
   var i = -1;
 
