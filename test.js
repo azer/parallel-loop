@@ -1,17 +1,18 @@
+var test = require('prova');
 var loop = require("./");
 
-it('calls end function when iteration is done', function(done){
+test('calls end function when iteration is done', function (t) {
   var ctr = 0;
   var arr = [];
 
   loop(10, each, function () {
-    expect(ctr).to.equal(10);
-    expect(arr).to.deep.equal([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
-    done();
+    t.equal(ctr, 10);
+    t.deepEqual(arr, [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
+    t.end();
   });
 
   function each (done, i) {
-    expect(i).to.equal(ctr++);
+    t.equal(i, ctr++);
     setTimeout(function () {
       arr.push(i);
       done();
@@ -19,29 +20,29 @@ it('calls end function when iteration is done', function(done){
   }
 });
 
-it('works with both sync & async functions', function(done){
+test('works with both sync & async functions', function (t) {
   var ctr = 0;
 
   loop(10, each, function () {
-    expect(ctr).to.equal(10);
-    done();
+    t.equal(ctr, 10);
+    t.end();
   });
 
   function each (done, i) {
-    expect(i).to.equal(ctr++);
+    t.equal(i, ctr++);
     if (i % 2 == 0) return done();
     setTimeout(done, 50);
   };
 });
 
-it('ignores multiple done calls', function(done){
+test('ignores multiple done calls', function (t) {
   var last = 0;
   var acc = 0;
 
   loop(10, each, function () {
-    expect(acc).to.equal(45);
-    expect(last).to.equal(9);
-    done();
+    t.equal(acc, 45);
+    t.equal(last, 9);
+    t.end();
   });
 
   function each (done, i) {
