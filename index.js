@@ -17,7 +17,7 @@ function parallel (n, each, done) {
       if (!unlock) return;
       unlock = undefined;
 
-      if (++counter == n) done();
+      if (++counter == n) done && done();
     }, i);
   }
 }

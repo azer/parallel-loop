@@ -62,3 +62,10 @@ test('zero length', function (t) {
     throw new Error('fail');
   }
 });
+
+test('with no callback', function (t) {
+  t.plan(5);
+  loop(5, function () {
+    t.ok(true);
+  });
+});
