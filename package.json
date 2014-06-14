@@ -1,6 +1,6 @@
 {
   "name": "parallel-loop",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Loop parallelly",
   "main": "index.js",
   "scripts": {
